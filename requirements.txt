@@ -1,0 +1,5 @@
+json
+numpy>=1.14.3
+pandas>=0.22.0
+requests>=2.19.1
+time
