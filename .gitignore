@@ -43,31 +43,8 @@ nosetests.xml
 coverage.xml
 *,cover
 
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
 # DotEnv configuration
 .env
-
-# Database
-*.db
-*.rdb
-
-# Pycharm
-.idea
-
-# VS Code
-.vscode/
 
 # Spyder
 .spyproject/
@@ -77,6 +54,7 @@ target/
 
 # exclude data from source control by default
 /data/
+!/data/raw/
 
 # Mac OS-specific storage files
 .DS_Store
