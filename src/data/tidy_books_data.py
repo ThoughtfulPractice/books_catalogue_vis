@@ -46,7 +46,7 @@ googlebooks_df = pd.DataFrame(data)
 print('Status: Prepped googlebooks data')
 
 # Read and prep openlibrary books json file
-with open('../../data/openbooks_volumes.json') as json_data:
+with open('../../data/external/openbooks_volumes.json') as json_data:
     openbooks_volumes = json.load(json_data)
 
 data = []
