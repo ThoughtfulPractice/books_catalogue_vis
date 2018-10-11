@@ -1,19 +1,27 @@
+import click
 import pandas as pd
 import requests
 import json
 import time
 from pathlib import Path
 
-def main():
-    # Setup filepaths
-    project_dir = Path(__file__).resolve().parents[2]
-    project_data_dir = project_dir.joinpath('data')
 
-    raw_books_data_path = project_data_dir.joinpath(
-        'raw', 'books.csv')
-    outfile_path = project_data_dir.joinpath(
-        'external', 'openbooks_volumes_test.json')
+# Setup filepaths
+project_dir = Path(__file__).resolve().parents[2]
+project_data_dir = project_dir.joinpath('data')
 
+raw_books_data_path = project_data_dir.joinpath(
+    'raw', 'books.csv')
+outfile_path = project_data_dir.joinpath(
+    'external', 'openbooks_volumes.json')
+
+
+@click.command()
+@click.option('--raw_books_data_path', default=raw_books_data_path,
+              help='.csv path to raw_books_data')
+@click.option('--outfile_path', default=outfile_path,
+              help='.json path to save openlibrary api data')
+def main(raw_books_data_path, outfile_path):
     # Load manually prepared books data
     books = pd.read_csv(raw_books_data_path)
     books['NoDashISBN'] = books['ISBN'].apply(
@@ -22,7 +30,7 @@ def main():
     # Use ISBNs to get info on the books from OpenLibrary Books API
     openbooks_endpoint = 'https://openlibrary.org/api/books'
     openbooks_volumes = []
-    for no_dash_isbn in books['NoDashISBN'][0:2]:
+    for no_dash_isbn in books['NoDashISBN']:
         payload = {'bibkeys': 'ISBN:' + no_dash_isbn,
                    'format': 'json',
                    'jscmd': 'data'

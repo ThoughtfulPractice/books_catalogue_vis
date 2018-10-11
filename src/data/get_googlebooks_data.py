@@ -1,27 +1,36 @@
+import click
 import pandas as pd
 import requests
 import json
 import time
 from pathlib import Path
-
 import os
 from dotenv import load_dotenv, find_dotenv
 
 
-def main():
-    project_dir = Path(__file__).resolve().parents[2]
-    project_data_dir = project_dir.joinpath('data')
+# Setup filepaths
+project_dir = Path(__file__).resolve().parents[2]
+project_data_dir = project_dir.joinpath('data')
 
-    raw_books_data_path = project_data_dir.joinpath(
-        'raw', 'books.csv')
-    outfile_path = project_data_dir.joinpath(
-        'external', 'googlebooks_volumes.json')
+raw_books_data_path = project_data_dir.joinpath(
+    'raw', 'books.csv')
+outfile_path = project_data_dir.joinpath(
+    'external', 'googlebooks_volumes.json')
 
-    # find .env automagically by walking up directories until it's found
-    dotenv_path = find_dotenv()
-    # load environment variables
-    load_dotenv(dotenv_path)
-    googlebooks_api_key = os.environ.get("GOOGLEBOOKS_API_KEY")
+# find .env automagically by walking up directories until it's found
+dotenv_path = find_dotenv()
+# load environment variables
+load_dotenv(dotenv_path)
+googlebooks_api_key = os.environ.get("GOOGLEBOOKS_API_KEY")
+
+@click.command()
+@click.option('--raw_books_data_path', default=raw_books_data_path,
+              help='.csv path to raw_books_data')
+@click.option('--outfile_path', default=outfile_path,
+              help='.json path to save googlebooks api data')
+@click.option('--googlebooks_api_key', default=googlebooks_api_key,
+              help='your googlebooks api key')
+def main(raw_books_data_path, outfile_path, googlebooks_api_key):
 
     # Load manually prepared books data
     books = pd.read_csv(raw_books_data_path)

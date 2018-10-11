@@ -1,29 +1,39 @@
+import click
 import pandas as pd
 import numpy as np
 import json
 from pathlib import Path
 
+# Setup filepaths
+project_dir = Path(__file__).resolve().parents[2]
+project_data_dir = project_dir.joinpath(
+    'data')
+raw_books_data_path = project_data_dir.joinpath(
+    'raw', 'books.csv')
+googlebooks_data_path = project_data_dir.joinpath(
+    'external', 'googlebooks_volumes.json')
+openbooks_data_path = project_data_dir.joinpath(
+    'external', 'openbooks_volumes.json')
+outfile_path = project_data_dir.joinpath('tidy', 'books.csv')
 
-def main():
-    # Setup filepaths
-    project_dir = Path(__file__).resolve().parents[2]
-    project_data_dir = project_dir.joinpath('data')
-
-    raw_books_data_path = project_data_dir.joinpath(
-        'raw', 'books.csv')
-    googlebooks_data_path = project_data_dir.joinpath(
-        'external', 'googlebooks_volumes.json')
-    openbooks_data_path = project_data_dir.joinpath(
-        'external', 'openbooks_volumes.json')
-    outfile_path = project_data_dir.joinpath('tidy', 'books.csv')
-
+@click.command()
+@click.option('--raw_books_data_path', default=raw_books_data_path,
+              help='.csv path to raw_books_data')
+@click.option('--googlebooks_data_path', default=googlebooks_data_path,
+              help='.json path to googlebooks data')
+@click.option('--openbooks_data_path', default=openbooks_data_path,
+              help='.json path to open library data')
+@click.option('--outfile_path', default=outfile_path,
+              help='.csv path for tidy books data')
+def main(raw_books_data_path, googlebooks_data_path,
+         openbooks_data_path, outfile_path):
     # Read books data
     books = pd.read_csv(raw_books_data_path.resolve())
     books['NoDashISBN'] = books['ISBN'].apply(
         lambda x: str(x.replace('-', '')))
     print('Status: Read books data')
 
-    # Read and prep googlebooks data  
+    # Read and prep googlebooks json file
     with googlebooks_data_path.open() as json_data:
         googlebooks_volumes = json.load(json_data)
 
@@ -149,5 +159,4 @@ def main():
 
 
 if __name__ == "__main__":
-
     main()
