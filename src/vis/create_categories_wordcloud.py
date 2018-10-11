@@ -4,6 +4,7 @@ import numpy as np
 from wordcloud import WordCloud
 from palettable.colorbrewer.qualitative import Set3_12
 from pathlib import Path
+import logging
 
 # Setup filepaths
 project_dir = Path(__file__).resolve().parents[2]
@@ -19,6 +20,8 @@ outfile_path = project_dir.joinpath(
 @click.option('--outfile_path', default=outfile_path,
               help='path to save generated wordcloud')
 def main(tidy_books_data_path, outfile_path):
+    logger = logging.getLogger(__name__)
+
     books = pd.read_csv(tidy_books_data_path)
     df = books[books['ownership'] == 'His']
 
@@ -43,7 +46,11 @@ def main(tidy_books_data_path, outfile_path):
 
     # Save to file
     wc.to_file(outfile_path)
+    logger.info('wordcloud saved to %s' %(outfile_path) )
 
 
 if __name__ == "__main__":
+    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    logging.basicConfig(level=logging.INFO, format=log_fmt)
+
     main()

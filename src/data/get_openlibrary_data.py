@@ -4,6 +4,7 @@ import requests
 import json
 import time
 from pathlib import Path
+import logging
 
 
 # Setup filepaths
@@ -22,6 +23,12 @@ outfile_path = project_data_dir.joinpath(
 @click.option('--outfile_path', default=outfile_path,
               help='.json path to save openlibrary api data')
 def main(raw_books_data_path, outfile_path):
+
+    logger = logging.getLogger(__name__)
+    logger.info(
+      'PROCESS STARTED: Calling for data from Open Library Books API using raw books data \
+      from %s' % (raw_books_data_path))
+
     # Load manually prepared books data
     books = pd.read_csv(raw_books_data_path)
     books['NoDashISBN'] = books['ISBN'].apply(
@@ -47,7 +54,12 @@ def main(raw_books_data_path, outfile_path):
     with outfile_path.open('wb') as outfile:
         json.dump(openbooks_volumes, outfile,
                   ensure_ascii=False, indent=4, sort_keys=True)
+    logger.info('Data saved to %s' % (outfile_path))
+    logger.info('PROCESS COMPLETED')
 
 
 if __name__ == "__main__":
+    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    logging.basicConfig(level=logging.INFO, format=log_fmt)
+
     main()

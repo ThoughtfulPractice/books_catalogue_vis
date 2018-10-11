@@ -1,4 +1,5 @@
 import click
+import logging
 import pandas as pd
 import numpy as np
 import json
@@ -28,11 +29,17 @@ outfile_path = project_data_dir.joinpath('tidy', 'books.csv')
               help='.csv path for tidy books data')
 def main(raw_books_data_path, googlebooks_data_path,
          openbooks_data_path, outfile_path):
+
+    logger = logging.getLogger(__name__)
+    logger.info(
+        'PROCESS STARTED: Creating tidy books data using raw books data from \
+        %s' % (raw_books_data_path))
+
     # Read books data
     books = pd.read_csv(raw_books_data_path.resolve())
     books['NoDashISBN'] = books['ISBN'].apply(
         lambda x: str(x.replace('-', '')))
-    print('Status: Read books data')
+    logger.info('Read and formatted books data')
 
     # Read and prep googlebooks json file
     with googlebooks_data_path.open() as json_data:
@@ -70,7 +77,7 @@ def main(raw_books_data_path, googlebooks_data_path,
 
             data.append(d)
     googlebooks_df = pd.DataFrame(data)
-    print('Status: Prepped googlebooks data')
+    logger.info('Prepped googlebooks data')
 
     # Read and prep openlibrary books json file
     with openbooks_data_path.open() as json_data:
@@ -120,7 +127,7 @@ def main(raw_books_data_path, googlebooks_data_path,
         'publish_date': 'publishedDate',
         'number_of_pages': 'pageCount'
     }, axis='columns', inplace=True)
-    print('Status: Prepped openlibrary data')
+    logger.info('Prepped openlibrary data')
 
     # Merge the books data with googlebooks and openbooks data.
     merged = books.merge(
@@ -156,8 +163,13 @@ def main(raw_books_data_path, googlebooks_data_path,
 
     df = merged[required_cols].copy()
     df.to_csv(outfile_path, index=False, encoding='utf-8')
-    print('Status: Saved books data')
+    logger.info('Saved books data to %s' %(outfile_path) )
+
+    logger.info('PROCESS ENDED')
 
 
 if __name__ == "__main__":
+    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    logging.basicConfig(level=logging.INFO, format=log_fmt)
+
     main()
