@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use('TkAgg')
+
 import pandas as pd
 from plotnine import *
 from pandas.api.types import CategoricalDtype

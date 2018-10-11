@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use('TkAgg')
+
 import pandas as pd
 import numpy as np
 from wordcloud import WordCloud
@@ -5,6 +8,7 @@ from palettable.colorbrewer.qualitative import Set3_12
 import click
 from pathlib import Path
 import logging
+
 
 # Setup filepaths
 project_dir = Path(__file__).resolve().parents[2]
