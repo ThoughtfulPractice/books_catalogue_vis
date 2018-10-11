@@ -1,8 +1,8 @@
-import click
 import pandas as pd
 import numpy as np
 from wordcloud import WordCloud
 from palettable.colorbrewer.qualitative import Set3_12
+import click
 from pathlib import Path
 import logging
 
@@ -10,17 +10,20 @@ import logging
 project_dir = Path(__file__).resolve().parents[2]
 tidy_books_data_path = project_dir.joinpath(
     'data', 'tidy', 'books.csv')
-outfile_path = project_dir.joinpath(
-    'reports', 'figures', 'categories_wordcloud.png')
+outfile_dir = project_dir.joinpath('reports', 'figures')
+outfile_name = 'categories_wordcloud.png'
 
 
 @click.command()
 @click.option('--tidy_books_data_path', default=tidy_books_data_path,
               help='.csv path to tidy books data')
-@click.option('--outfile_path', default=outfile_path,
-              help='path to save generated wordcloud')
-def main(tidy_books_data_path, outfile_path):
+@click.option('--outfile_name', default=outfile_name,
+              help='filename for generated vis')
+@click.option('--outfile_dir', default=outfile_dir,
+              help='folder path for generated vis')
+def main(tidy_books_data_path, outfile_name, outfile_dir):
     logger = logging.getLogger(__name__)
+    outfile_path = outfile_dir.joinpath(outfile_name)
 
     books = pd.read_csv(tidy_books_data_path)
     df = books[books['ownership'] == 'His']
@@ -46,7 +49,7 @@ def main(tidy_books_data_path, outfile_path):
 
     # Save to file
     wc.to_file(outfile_path)
-    logger.info('wordcloud saved to %s' %(outfile_path) )
+    logger.info('%s saved to %s' % (outfile_path.stem, outfile_path))
 
 
 if __name__ == "__main__":

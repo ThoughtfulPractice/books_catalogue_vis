@@ -164,8 +164,7 @@ def main(raw_books_data_path, googlebooks_data_path,
     df = merged[required_cols].copy()
     df.to_csv(outfile_path, index=False, encoding='utf-8')
     logger.info('Saved books data to %s' %(outfile_path) )
-
-    logger.info('PROCESS ENDED')
+    logger.info('PROCESS COMPLETED')
 
 
 if __name__ == "__main__":
