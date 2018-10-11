@@ -54,7 +54,6 @@ coverage.xml
 
 # exclude data from source control by default
 /data/external/
-/data/tidy/
 
 # Mac OS-specific storage files
 .DS_Store
