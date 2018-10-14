@@ -2,6 +2,7 @@
 
 ## Install Python Dependencies
 init:
+	pipenv install
 	
 ## Collect API data
 api:
@@ -21,6 +22,14 @@ vis:
 clean:
 	find . -type f -name "*.py[co]" -delete
 	find . -type d -name "__pycache__" -delete
+
+## Run all tests
+alltests:
+	py.test --cov books_catalogue_vis
+
+## Run unit tests
+unittests:
+	py.test --cov books_catalogue_vis -v -m "not api"
 
 #################################################################################
 # Self Documenting Commands                                                     #

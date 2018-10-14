@@ -10,6 +10,7 @@ load_dotenv(dotenv_path)
 
 GOOGLEBOOKS_API_KEY = os.getenv("GOOGLEBOOKS_API_KEY")
 
+
 # Tests for openlibrary_data.py
 @pytest.fixture(scope='session')
 def openbooks_api_response():
@@ -18,18 +19,22 @@ def openbooks_api_response():
     return response
 
 
+@pytest.mark.api
 def test_returns_list(openbooks_api_response):
     assert isinstance(openbooks_api_response, list)
 
 
+@pytest.mark.api
 def test_returns_correct_number_of_responses(openbooks_api_response):
     assert len(openbooks_api_response) == 2
 
 
+@pytest.mark.api
 def assert_returns_isbns_without_dashes(openbooks_api_response):
     assert openbooks_api_response[0]['no_dash_isbn'] == '9780823014880'
 
 
+@pytest.mark.api
 def test_adds_nodash_isbn_column_to_df(datadir):
     RAW_BOOKS_PATH = datadir["raw_books.csv"]
     df = pd.read_csv(RAW_BOOKS_PATH)
@@ -48,18 +53,22 @@ def googlebooks_api_response():
     return response
 
 
+@pytest.mark.api
 def test_googlebooks_api_returns_list(googlebooks_api_response):
     assert isinstance(googlebooks_api_response, list)
 
 
+@pytest.mark.api
 def test_googlebooks_api_returns_correct_number_of_responses(googlebooks_api_response):
     assert len(googlebooks_api_response) == 2
 
 
+@pytest.mark.api
 def assert_googlebooks_api_returns_isbns_without_dashes(googlebooks_api_response):
     assert googlebooks_api_response[0]['no_dash_isbn'] == '9780823014880'
 
 
+@pytest.mark.api
 def test_googlebooks_api_adds_nodash_isbn_column_to_df(datadir):
     RAW_BOOKS_PATH = datadir["raw_books.csv"]
     df = pd.read_csv(RAW_BOOKS_PATH)
@@ -68,3 +77,10 @@ def test_googlebooks_api_adds_nodash_isbn_column_to_df(datadir):
     assert 'NoDashISBN' in out.columns
     assert out['NoDashISBN'].equals((df['ISBN'].apply(
         lambda x: str(x.replace('-', '')))))
+
+
+# Tests for putting required googlebooks data in dataframe
+
+# Tests for putting required openbooks data in dataframe
+
+# Tests for creating tidy books data

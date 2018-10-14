@@ -18,6 +18,7 @@ matplotlib = "*"
 pytest-datadir-ng = "*"
 pytest = "*"
 python-dotenv = "*"
+pytest-cov = "*"
 
 [dev-packages]
 
