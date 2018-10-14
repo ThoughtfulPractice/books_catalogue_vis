@@ -1,12 +1,11 @@
-import matplotlib
-matplotlib.use('TkAgg')
-
 import pandas as pd
-from plotnine import *
 from pandas.api.types import CategoricalDtype
 import click
 from pathlib import Path
 import logging
+import matplotlib
+matplotlib.use('TkAgg')
+from plotnine import *
 
 
 # Setup filepaths

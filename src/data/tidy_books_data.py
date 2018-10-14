@@ -36,7 +36,7 @@ def main(raw_books_data_path, googlebooks_data_path,
         %s' % (raw_books_data_path))
 
     # Read books data
-    books = pd.read_csv(raw_books_data_path.resolve())
+    books = pd.read_csv(raw_books_data_path)
     books['NoDashISBN'] = books['ISBN'].apply(
         lambda x: str(x.replace('-', '')))
     logger.info('Read and formatted books data')

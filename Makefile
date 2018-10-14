@@ -1,7 +1,9 @@
 .PHONY: init api data vis clean
 
-## Install Python Dependencies
+## Install Python Dependencies and enter pipenv shell
 init:
+	pip install --user pipenv
+	pipenv shell
 	pipenv install
 	
 ## Collect API data
