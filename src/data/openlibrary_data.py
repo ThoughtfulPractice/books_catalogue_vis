@@ -26,29 +26,17 @@ def main(raw_books_data_path, outfile_path):
 
     logger = logging.getLogger(__name__)
     logger.info(
-      'PROCESS STARTED: Calling for data from Open Library Books API using raw books data \
-      from %s' % (raw_books_data_path))
+        'PROCESS STARTED: Calling for data from Open Library Books API\
+        using raw books data from\
+        %s' % (raw_books_data_path))
 
     # Load manually prepared books data
     books = pd.read_csv(raw_books_data_path)
-    books['NoDashISBN'] = books['ISBN'].apply(
-        lambda x: str(x.replace('-', '')))
+    books = add_nodashisbn_column(books)
 
     # Use ISBNs to get info on the books from OpenLibrary Books API
-    openbooks_endpoint = 'https://openlibrary.org/api/books'
-    openbooks_volumes = []
-    for no_dash_isbn in books['NoDashISBN']:
-        payload = {'bibkeys': 'ISBN:' + no_dash_isbn,
-                   'format': 'json',
-                   'jscmd': 'data'
-                   }
-        r = requests.get(openbooks_endpoint, params=payload)
-        openbooks_volumes.append(
-            {
-                'no_dash_isbn': no_dash_isbn,
-                'response': r.json()
-            })
-        time.sleep(0.2)
+    isbns = books['NoDashISBN'].tolist()
+    openbooks_volumes = openbooks_api(isbns)
 
     # Save as json file
     with outfile_path.open('wb') as outfile:
@@ -56,6 +44,34 @@ def main(raw_books_data_path, outfile_path):
                   ensure_ascii=False, indent=4, sort_keys=True)
     logger.info('Data saved to %s' % (outfile_path))
     logger.info('PROCESS COMPLETED')
+
+
+def openbooks_api(isbns):
+    """Takes a list of ISBN number strings and returns json
+    data from openlibrary api"""
+    openbooks_volumes = []
+    openbooks_endpoint = 'https://openlibrary.org/api/books'
+
+    no_dash_isbns = [str(x.replace('-', '')) for x in isbns]
+
+    for isbn in no_dash_isbns:
+        payload = {'bibkeys': 'ISBN:' + isbn,
+                   'format': 'json',
+                   'jscmd': 'data'
+                   }
+        r = requests.get(openbooks_endpoint, params=payload)
+        d = {'no_dash_isbn': isbn,
+             'response': r.json()}
+        openbooks_volumes.append(d)
+        time.sleep(0.2)
+
+    return openbooks_volumes
+
+
+def add_nodashisbn_column(df):
+    df['NoDashISBN'] = df['ISBN'].apply(
+        lambda x: str(x.replace('-', '')))
+    return df
 
 
 if __name__ == "__main__":

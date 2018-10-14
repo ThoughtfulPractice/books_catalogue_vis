@@ -5,8 +5,8 @@ init:
 	
 ## Collect API data
 api:
-	python src/data/get_googlebooks_data.py
-	python src/data/get_openlibrary_data.py
+	python src/data/googlebooks_data.py
+	python src/data/openlibrary_data.py
 
 ## Make Dataset
 data:

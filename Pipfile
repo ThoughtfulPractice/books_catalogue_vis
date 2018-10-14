@@ -15,6 +15,8 @@ palettable = "*"
 jupyter = "*"
 notebook = "*"
 matplotlib = "*"
+pytest-datadir-ng = "*"
+pytest = "*"
 
 [dev-packages]
 

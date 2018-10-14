@@ -33,7 +33,7 @@ googlebooks_api_key = os.environ.get("GOOGLEBOOKS_API_KEY")
 @click.option('--googlebooks_api_key', default=googlebooks_api_key,
               help='your googlebooks api key')
 def main(raw_books_data_path, outfile_path, googlebooks_api_key):
-  
+
     logger = logging.getLogger(__name__)
     logger.info(
       'PROCESS STARTED: Calling for data from Googlebooks API using raw books data \
