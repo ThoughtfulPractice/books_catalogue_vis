@@ -34,15 +34,13 @@ def assert_returns_isbns_without_dashes(openbooks_api_response):
     assert openbooks_api_response[0]['no_dash_isbn'] == '9780823014880'
 
 
-@pytest.mark.api
-def test_adds_nodash_isbn_column_to_df(datadir):
-    RAW_BOOKS_PATH = datadir["raw_books.csv"]
-    df = pd.read_csv(RAW_BOOKS_PATH)
+def test_adds_nodash_isbn_column_to_df():
+    df = pd.DataFrame(
+        {'ISBN': ["987-654-321-0", "123123123-X"]})
 
     out = openlibrary_data.add_nodashisbn_column(df)
     assert 'NoDashISBN' in out.columns
-    assert out['NoDashISBN'].equals((df['ISBN'].apply(
-        lambda x: str(x.replace('-', '')))))
+    assert out['NoDashISBN'].tolist() == ["9876543210", "123123123X"]
 
 
 # Tests for googlebooks_data.py
@@ -68,18 +66,17 @@ def assert_googlebooks_api_returns_isbns_without_dashes(googlebooks_api_response
     assert googlebooks_api_response[0]['no_dash_isbn'] == '9780823014880'
 
 
-@pytest.mark.api
-def test_googlebooks_api_adds_nodash_isbn_column_to_df(datadir):
-    RAW_BOOKS_PATH = datadir["raw_books.csv"]
-    df = pd.read_csv(RAW_BOOKS_PATH)
+def test_googlebooks_api_adds_nodash_isbn_column_to_df():
+    df = pd.DataFrame(
+        {'ISBN': ["987-654-321-0", "123123123-X"]})
 
     out = googlebooks_data.add_nodashisbn_column(df)
     assert 'NoDashISBN' in out.columns
-    assert out['NoDashISBN'].equals((df['ISBN'].apply(
-        lambda x: str(x.replace('-', '')))))
+    assert out['NoDashISBN'].tolist() == ["9876543210", "123123123X"]
 
 
 # Tests for putting required googlebooks data in dataframe
+
 
 # Tests for putting required openbooks data in dataframe
 
