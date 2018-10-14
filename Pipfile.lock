@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "90d76360f7905df9867c089d4149bb0e165cb917e3c8d7a8c458b948f60d6d61"
+            "sha256": "667e69b237de1902a3919906ff0502975e13a4d3b44d0df46b41c4d255ed15f7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -303,10 +303,10 @@
         },
         "mizani": {
             "hashes": [
-                "sha256:1dd4b29918f889d7c1347b98cb4b2dba114ba10116592b7f1915f4ff515b9311",
-                "sha256:e52bf6e1806e74a72500635eea6aeb472fb836d3ad43e51ca49734cb973a4aa7"
+                "sha256:aa8b3a2d5b002ffc827b1cfbc75ccf54d276a34f1f2d7a699a53dc6e8a218273",
+                "sha256:ceb14cbe8773604175dccde002666b2b21c2faaff2229fd98daaf67c4efa3267"
             ],
-            "version": "==0.4.6"
+            "version": "==0.5.0"
         },
         "more-itertools": {
             "hashes": [
@@ -575,6 +575,14 @@
                 "sha256:e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
             ],
             "version": "==2.7.3"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:122290a38ece9fe4f162dc7c95cae3357b983505830a154d3c98ef7f6c6cea77",
+                "sha256:4a205787bc829233de2a823aa328e44fd9996fedb954989a21f1fc67c13d7a77"
+            ],
+            "index": "pypi",
+            "version": "==0.9.1"
         },
         "pytz": {
             "hashes": [
