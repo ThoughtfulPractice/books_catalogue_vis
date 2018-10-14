@@ -25,7 +25,7 @@ clean:
 
 ## Run all tests
 alltests:
-	py.test --cov books_catalogue_vis
+	py.test --cov books_catalogue_vis -v
 
 ## Run unit tests
 unittests:
