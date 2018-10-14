@@ -157,3 +157,24 @@ class TestTidyBooksData(object):
             'thumbnail_link', 'dewey_decimal_class', 'ISBN_10', 'ISBN_13']
         for col in required_columns:
             assert col in df.columns
+
+    def test_contains_all_raw_books(self, datadir):
+        raw_books_path = datadir['raw_books_test.csv']
+        books = pd.read_csv(raw_books_path)
+        books['NoDashISBN'] = books['ISBN'].apply(
+            lambda x: str(x.replace('-', '')))
+
+        googlebooks_path = datadir['googlebooks_volumes_test.json']
+        with googlebooks_path.open() as json_data:
+            googlebooks_volumes = json.load(json_data)
+        googlebooks_df = tidy_books_data.googlebooks_json_to_df(
+            googlebooks_volumes)
+
+        openbooks_path = datadir['openbooks_volumes_test.json']
+        with openbooks_path.open() as json_data:
+            openbooks_volumes = json.load(json_data)
+        openbooks_df = tidy_books_data.openbooks_json_to_df(openbooks_volumes)
+        df = tidy_books_data.tidy_books_data(
+            books, googlebooks_df, openbooks_df)
+
+        assert len(books) == len(df)
