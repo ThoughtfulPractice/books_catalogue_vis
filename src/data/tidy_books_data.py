@@ -44,7 +44,60 @@ def main(raw_books_data_path, googlebooks_data_path,
     # Read and prep googlebooks json file
     with googlebooks_data_path.open() as json_data:
         googlebooks_volumes = json.load(json_data)
+    googlebooks_df = googlebooks_json_to_df(googlebooks_volumes)
+    logger.info('Prepped googlebooks data')
 
+    # Read and prep openlibrary books json file
+    with openbooks_data_path.open() as json_data:
+        openbooks_volumes = json.load(json_data)
+    openbooks_df = openbooks_json_to_df(openbooks_volumes)
+    logger.info('Prepped openlibrary data')
+
+    df = tidy_books_data(books, googlebooks_df, openbooks_df)
+    df.to_csv(outfile_path, index=False, encoding='utf-8')
+    logger.info('Saved books data to %s' % (outfile_path))
+    logger.info('PROCESS COMPLETED')
+
+
+def tidy_books_data(raw_books_data, googlebooks_df, openbooks_df):
+    # Merge the books data with googlebooks and openbooks data.
+    merged = raw_books_data.merge(
+        googlebooks_df, how='left', on='NoDashISBN').merge(
+        openbooks_df, how='left', on='NoDashISBN',
+        suffixes=['_googlebooks', '_openbooks'])
+
+    for col in ['ISBN_10', 'ISBN_13', 'authors', 'pageCount',
+                'publishedDate', 'publisher', 'subtitle',
+                'thumbnail_link', 'title']:
+        merged[col] = merged.apply(
+            lambda row: row[col + '_googlebooks']
+            if row[col + '_googlebooks'] is not np.nan
+            else row[col + '_openbooks'], axis=1)
+
+    merged.rename({
+        'Ownership': 'ownership',
+        'HeHasRead': 'he_has_read',
+        'NoDashISBN': 'no_dash_isbn',
+        'publishedDate': 'published_date',
+        'pageCount': 'page_count',
+        'Category': 'category',
+        'SubCategory': 'subcategory'
+    }, axis='columns', inplace=True)
+
+    required_cols = ['title', 'subtitle', 'ownership', 'he_has_read',
+                     'no_dash_isbn', 'has_googlebooks_data',
+                     'has_openbooks_data', 'authors', 'publisher',
+                     'published_date', 'page_count',
+                     'description', 'categories', 'category', 'subcategory',
+                     'subjects', 'subject_places', 'googlebooks_link',
+                     'openbooks_link', 'thumbnail_link',
+                     'dewey_decimal_class', 'ISBN_10', 'ISBN_13']
+
+    df = merged[required_cols].copy()
+    return df
+
+
+def googlebooks_json_to_df(googlebooks_volumes):
     data = []
     for volume in googlebooks_volumes:
         if 'items' in volume['response'].keys():
@@ -77,12 +130,10 @@ def main(raw_books_data_path, googlebooks_data_path,
 
             data.append(d)
     googlebooks_df = pd.DataFrame(data)
-    logger.info('Prepped googlebooks data')
+    return googlebooks_df
 
-    # Read and prep openlibrary books json file
-    with openbooks_data_path.open() as json_data:
-        openbooks_volumes = json.load(json_data)
 
+def openbooks_json_to_df(openbooks_volumes):
     data = []
     for volume in openbooks_volumes:
         if volume['response']:
@@ -127,44 +178,8 @@ def main(raw_books_data_path, googlebooks_data_path,
         'publish_date': 'publishedDate',
         'number_of_pages': 'pageCount'
     }, axis='columns', inplace=True)
-    logger.info('Prepped openlibrary data')
 
-    # Merge the books data with googlebooks and openbooks data.
-    merged = books.merge(
-        googlebooks_df, how='left', on='NoDashISBN').merge(
-        openbooks_df, how='left', on='NoDashISBN',
-        suffixes=['_googlebooks', '_openbooks'])
-
-    for col in ['ISBN_10', 'ISBN_13', 'authors', 'pageCount',
-                'publishedDate', 'publisher', 'subtitle',
-                'thumbnail_link', 'title']:
-        merged[col] = merged.apply(
-            lambda row: row[col + '_googlebooks']
-            if row[col + '_googlebooks'] is not np.nan
-            else row[col + '_openbooks'], axis=1)
-
-    merged.rename({
-        'Ownership': 'ownership',
-        'HeHasRead': 'he_has_read',
-        'NoDashISBN': 'no_dash_isbn',
-        'publishedDate': 'published_date',
-        'pageCount': 'page_count',
-        'Category': 'category',
-        'SubCategory': 'subcategory'
-    }, axis='columns', inplace=True)
-
-    required_cols = ['title', 'subtitle', 'ownership', 'he_has_read',
-                     'no_dash_isbn', 'has_googlebooks_data',
-                     'has_openbooks_data', 'authors', 'publisher',
-                     'published_date', 'page_count',
-                     'description', 'categories', 'category', 'subcategory',
-                     'subjects', 'subject_places', 'googlebooks_link',
-                     'openbooks_link', 'thumbnail_link', 'dewey_decimal_class']
-
-    df = merged[required_cols].copy()
-    df.to_csv(outfile_path, index=False, encoding='utf-8')
-    logger.info('Saved books data to %s' %(outfile_path) )
-    logger.info('PROCESS COMPLETED')
+    return openbooks_df
 
 
 if __name__ == "__main__":
