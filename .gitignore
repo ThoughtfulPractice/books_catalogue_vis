@@ -53,7 +53,7 @@ coverage.xml
 .ipynb_checkpoints/
 
 # exclude data from source control by default
-/data/external/
+#/data/external/
 
 # Mac OS-specific storage files
 .DS_Store
