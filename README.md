@@ -13,6 +13,7 @@ $ make create_environment
 This installs pipenv in your local user directory, creates a virtual environment using pipenv, and enters the environment shell automatically.
 
 2. If you are using your own data/raw/books.csv file:
+
 	A. Create a *.env* file in the project root folder:
 	```
 	$ GOOGLEBOOKS_API_KEY='<Your personal API key here. DO NOT SHARE THIS!>'
