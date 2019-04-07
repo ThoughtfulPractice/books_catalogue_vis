@@ -1,10 +1,14 @@
 ISBN,Title,Ownership,Category,SubCategory,HeHasRead
+978-1-892005-28-1,Nonviolent Communication,His,Management,,0
+978-1-491-97389-9,"The Manager's Path",His,Management,,0
+978-1-107-18612-5,Principles of Database Management,His,Computer Science,,0
+978-1-4842-2157-0,Managing Humans,His,Management,,0
 978-0-8048-3520-6,Book of Five Rings,His,Philosophy,,1
 0-674-00991-6,The Making of Modern Japan,His,History,,0
 978-0-470-62074-8,Flawless Consulting,His,Management,Coaching,0
 978-1-4221-8739-5,Playing to Win,His,Strategy,,1
 978-1-4221-1736-1,Immunity to Change,His,Leadership,Change Management,0
-978-1-84-794032-2,Switch,His,Leadership,Change Management,0
+978-1-84-794032-2,Switch,His,Leadership,Change Management,1
 978-2-960133-50-9,Reinventing organizations,His,Leadership,,0
 978-1-77327-059-3.Flat Army,His,Leadership,,1
 978-1-250-19577-7,The Dichotomy of Leadership,His,Leadership,,1
@@ -15,7 +19,7 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-0-7869-6560-1,"Dungeons & Dragons Player's Handbook",His,Games,,1
 978-0-7869-6562-5,"Dungeons & Dragons Dungeon Master's Guide",His,Games,,1
 978-0-7869-6561-8,"Dungeons & Dragons Monster Manual,His,Games",,1
-978-0-8230-1488-0,Manga for the Beginner chibs,His,Manga,,0
+978-0-8230-1488-0,Manga for the Beginner chibis,His,Manga,,0
 978-0-8230-3083-5,Manga for the Beginner,His,Manga,,0
 978-0-8230-9533-9,"Drawing Manga - Animals, Chibis, and other adorable creatures",His,Manga,,0
 1-59164-026-1,Coaching the 3-4-1-2 and 4-2-3-1,His,Soccer,,1
