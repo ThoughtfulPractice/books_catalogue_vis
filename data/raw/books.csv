@@ -6,18 +6,18 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-0-7869-6683-7,Dungeons & Dragons Essentials Kit,His,Games,,0
 978-0-7869-6626-4,Waterdeep Dungeon of the Mad Mage,His,Games,,0
 978-0-7869-6609-7,Tales from the Yawning Portal,His,Games,,0
-978-0-7869-6598-4,Curse of Strahd,His,Games,,0
+978-0-7869-6598-4,Curse of Strahd,His,Games,,1
 978-0-7869-6676-9,"Baludur's Gate Descent into Avernus",His,Games,,0
 978-0-7869-6675-2,Ghosts of Saltmarsh,His,Games,,0
-978-0-7869-6625-7,Waterdeep Dragon Heist,His,Games,,0
-978-981-48-2820-8,Reluctant Editor,His,Singapore,,0
+978-0-7869-6625-7,Waterdeep Dragon Heist,His,Games,,1
+978-981-48-2820-8,Reluctant Editor,His,Singapore,,1
 978-1-119-49144-6,Information Governance,His,Information Policy,,0
 978-1-7945-8151-7,The Elements of Thinking in Systems,His,Management,,1
 978-1-5098-6808-7,Bad Blood,His,Technology,,0
 978-1-940858-98-2,Data Story,His,Data Visualisation,,1
 978-0-19-884350-4,Society & The Internet,His,Information Policy,,0
-978-0-19-537675-3,Better Powerpoint,His,Data Visualisation,,0
-978-1-5381-0331-9,Political Influence Operations,His,Information Policy,,0
+978-0-19-537675-3,Better Powerpoint,His,Data Visualisation,,1
+978-1-5381-0331-9,Political Influence Operations,His,Information Policy,,1
 978-0-13-396615-2,"The Non-Designer's Design Book",His,Data Visualisation,,1
 978-1-324-00156-0,How Charts Lie,His,Data Visualisation,,0
 978-0-857-52419-5,The Travelling Cat Chronicles,His,Fiction,,0
@@ -31,7 +31,7 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-0-8021-4594-9,Worm,His,Cybersecurity,,0
 0-8493-1489-5,The Laws of Software Process,His,Computer Science,,0
 978-0-316-49197-6,The Soul of a New Machine,His,Technology,,0
-978-1-59028-257-1,Problem solving with algorithms and data structures using python,His,Computer Science,,0
+978-1-59028-257-1,Problem solving with algorithms and data structures using Python,His,Computer Science,,0
 978-0-12-800218-6,Guerrilla Analytics,His,Data Analytics,,1
 978-0-5521-7445-9,The Power of Moments,His,Leadership,,1
 978-1-4221-2103-0,The Origin of Wealth,His,Economics,,0
