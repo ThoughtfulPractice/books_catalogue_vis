@@ -1,5 +1,5 @@
 ISBN,Title,Ownership,Category,SubCategory,HeHasRead
-978-981-123-653-2,Refreshing the Singapore System,His,Singapore,,0
+978-981-123-653-2,Refreshing the Singapore System,His,Singapore,,1
 978-0-521-71638-3,Spatial Analysis for the Social Sciences,His,Research,,0
 978-1-4129-1177-1,The Sage Handbook of Public Opinion Research,His,Research,,0
 978-0-19-958556-4,The Oxford Handbook of Political Methodology,His,Research,,0
@@ -19,7 +19,7 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-0-19-090628-3,The Ideas Industry,His,Sociology,,1
 978-0-393-64327-5,Essentials of International Relations,His,International Affairs,,0
 978-0-691-16370-3,Theories of International Politics and Zombies,His,International Affairs,,1
-978-0-7869-6580-9,"Sword Coast Adventurer's Guide",His,Games,,0
+978-0-7869-6580-9,Sword Coast Adventurer's Guide,His,Games,,0
 978-0-241-95318-1,Snow Crash,His,Fiction,,1
 978-1-328-54639-5,AI Superpowers,His,Technology,,1
 978-1-55597-604-0,Red Plenty,His,History,,0
@@ -29,7 +29,7 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-0-7869-6626-4,Waterdeep Dungeon of the Mad Mage,His,Games,,0
 978-0-7869-6609-7,Tales from the Yawning Portal,His,Games,,0
 978-0-7869-6598-4,Curse of Strahd,His,Games,,1
-978-0-7869-6676-9,"Baldur's Gate Descent into Avernus",His,Games,,0
+978-0-7869-6676-9,Baldur's Gate Descent into Avernus,His,Games,,0
 978-0-7869-6675-2,Ghosts of Saltmarsh,His,Games,,0
 978-0-7869-6625-7,Waterdeep Dragon Heist,His,Games,,1
 978-981-48-2820-8,Reluctant Editor,His,Singapore,,1
@@ -40,12 +40,12 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-0-19-884350-4,Society & The Internet,His,Information Policy,,0
 978-0-19-537675-3,Better Powerpoint,His,Data Visualisation,,1
 978-1-5381-0331-9,Political Influence Operations,His,Information Policy,,1
-978-0-13-396615-2,"The Non-Designer's Design Book",His,Data Visualisation,,1
+978-0-13-396615-2,The Non-Designer's Design Book,His,Data Visualisation,,1
 978-1-324-00156-0,How Charts Lie,His,Data Visualisation,,0
 978-0-857-52419-5,The Travelling Cat Chronicles,His,Fiction,,0
-978-0-7869-6601-1,"Dungeons & Dragons Volo's Guide to Monsters",His,Games,,1
-978-0-7869-6611-0,"Dungeons & Dragons Xanathar's Guide to Everything",His,Games,,1
-978-0-262-03885-0,"You'll see this message when it is too late",His,Cybersecurity,,1
+978-0-7869-6601-1,Dungeons & Dragons Volo's Guide to Monsters,His,Games,,1
+978-0-7869-6611-0,Dungeons & Dragons Xanathar's Guide to Everything,His,Games,,1
+978-0-262-03885-0,You'll see this message when it is too late,His,Cybersecurity,,1
 978-1-4926-0323-8,Spam Nation,His,Cybersecurity,,0
 978-0-7704-3619-3,Countdown to Zero Day,His,Cybersecurity,,0
 978-0-8389-1802-9,Foundations of Information Policy,His,Public Policy,,1
@@ -57,10 +57,10 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-0-12-800218-6,Guerrilla Analytics,His,Data Analytics,,1
 978-0-5521-7445-9,The Power of Moments,His,Leadership,,1
 978-1-4221-2103-0,The Origin of Wealth,His,Economics,,0
-978-0-19-023903-9,"China's Economy",His,Economics,China,0
+978-0-19-023903-9,China's Economy,His,Economics,China,0
 978-0-14-029672-3,The Truth About Markets,His,Economics,,0
 978-1-892005-28-1,Nonviolent Communication,His,Management,,1
-978-1-491-97389-9,"The Manager's Path",His,Management,,1
+978-1-491-97389-9,The Manager's Path,His,Management,,1
 978-1-107-18612-5,Principles of Database Management,His,Computer Science,,0
 978-1-4842-2157-0,Managing Humans,His,Management,,0
 978-0-8048-3520-6,Book of Five Rings,His,Philosophy,,1
@@ -70,15 +70,15 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-1-4221-1736-1,Immunity to Change,His,Leadership,Change Management,1
 978-1-84-794032-2,Switch,His,Leadership,Change Management,1
 978-2-960133-50-9,Reinventing organizations,His,Leadership,,0
-978-1-77327-059-3.Flat Army,His,Leadership,,1
+978-1-77327-059-3.Flat Army,His,Leadership,,1,
 978-1-250-19577-7,The Dichotomy of Leadership,His,Leadership,,1
 978-0-241-33414-0,Becoming,His,Autobiography,,0
 978-0-06-287478-8,It Doesn't Have to be Crazy at Work,His,Business,,1
 978-1-101-87129-4,Bitwise,His,Computer Science,,1
 978-1-61689-532-7,Dear Data,His,Data Visualisation,,0
-978-0-7869-6560-1,"Dungeons & Dragons Player's Handbook",His,Games,,1
-978-0-7869-6562-5,"Dungeons & Dragons Dungeon Master's Guide",His,Games,,1
-978-0-7869-6561-8,"Dungeons & Dragons Monster Manual,His,Games",,1
+978-0-7869-6560-1,Dungeons & Dragons Player's Handbook,His,Games,,1
+978-0-7869-6562-5,Dungeons & Dragons Dungeon Master's Guide,His,Games,,1
+978-0-7869-6561-8,"Dungeons & Dragons Monster Manual,His,Games",,1,,
 978-0-8230-1488-0,Manga for the Beginner chibis,His,Manga,,0
 978-0-8230-3083-5,Manga for the Beginner,His,Manga,,0
 978-0-8230-9533-9,"Drawing Manga - Animals, Chibis, and other adorable creatures",His,Manga,,0
