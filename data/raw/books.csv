@@ -5,8 +5,8 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-1-68403-468-0,Learned Hopefulness,His,Psychology,,0
 978-0-19-764926-8,Digital Empires,His,Technology,,0
 978-0-307-28050-3,Jerusalem The Biography,His,History,,0
-978-1-324-05207-4,Strength in Numbers,His,Social Science,,0
-978-1-119-89848-1,Decisions Over Decimals,His,Decision Making,,0
+978-1-324-05207-4,Strength in Numbers,His,Social Science,,1
+978-1-119-89848-1,Decisions Over Decimals,His,Decision Making,,1
 978-1-953953-21-6,Scaling People,His,Orgnisational Development,,0
 978-0-262-54498-6,Redesigning Work,His,Orgnisational Development,,0
 978-1-78966-779-0,"Networked, Scaled, and Agile",His,Orgnisational Development,,0
@@ -19,7 +19,7 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-1-3985-0410-3,Chip War,His,Technology,,1
 978-1-4221-8643-5,Leading Change,His,Orgnisational Development,,0
 978-1-9848-5463-6,Mindf*ck,His,Technology,,0
-978-0-593-32923-8,Dead in the Water,His,Fiction,,0
+978-0-593-32923-8,Dead in the Water,His,Fiction,,1
 978-1-5417-0124-3,The Crux,His,Strategy,,1
 978-1-911617-04-4,Maybe you should talk to someone,His,Fiction,,0
 978-1-908009-98-2,Dancing at the Edge,His,Orgnisational Development,,1
@@ -36,7 +36,7 @@ ISBN,Title,Ownership,Category,SubCategory,HeHasRead
 978-1-4129-1177-1,The Sage Handbook of Public Opinion Research,His,Research,,0
 978-0-19-958556-4,The Oxford Handbook of Political Methodology,His,Research,,0
 978-0-19-967302-5,The Oxford Handbook of American Public Opinion and the Media,His,Research,,0
-978-1-7348231-1-0,Out of the Box,His,Games,,0
+978-1-7348231-1-0,Out of the Box,His,Games,,1
 978-0-393-91272-2,Policy Paradox,His,Governance,,0
 978-1-137-54518-3,Understanding Public Policy,His,Governance,,0
 978-0-262-53975-3,Researching Internet Governance,His,Information Policy,,0
