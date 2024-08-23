@@ -1,9 +1,13 @@
-ISBN,Title,Category,SubCategory,HeHasRead,has_fetched_data,title,author,book_cover_url,publish_date,number_of_pages
+ISBN,Title,Category,SubCategory,has_read,has_fetched_data,title,author,book_cover_url,publish_date,number_of_pages
+978-1-4739-2943-2,An Introduction to Systematic Reviews,,Social Sciences,,0,0
+978-1-138-82079-1,The Science of Attitudes,,Social Sciences,,0,0
+978-1-032-19992-4,A Practical Guide to Theoretical Frameworks for Social Science Research,Social Sciences,,0,0
+978-1-108-81394-5,Action and Inaction in a Social World,Social Sciences,,0,0
 978-1-5235-0446-6,Eight Dates,Psychology,,0,0
 978-1-8418-8295-6,The Seven Principles for Making Marriage Work,Psychology,,0,0
 978-0-19-874393-4,The 4th Revolution,Technology,,0
-978-0-609-80953-2,The Relationship Cure,Psychology,,0,1,The relationship cure,"John Mordechai Gottman, Joan Declaire",https://covers.openlibrary.org/b/id/7364884-L.jpg,2002,319.0
-978-0-593-13459-7,They Called Me a Lioness,Biography,,0,1,They Called Me a Lioness,"Ahed Tamimi, دينا تكروري",https://covers.openlibrary.org/b/id/14602617-L.jpg,2023,N/A
+978-0-609-80953-2,The Relationship Cure,Psychology,,1,1,The relationship cure,"John Mordechai Gottman, Joan Declaire",https://covers.openlibrary.org/b/id/7364884-L.jpg,2002,319.0
+978-0-593-13459-7,They Called Me a Lioness,Biography,,1,1,They Called Me a Lioness,"Ahed Tamimi, دينا تكروري",https://covers.openlibrary.org/b/id/14602617-L.jpg,2023,N/A
 978-981-18-8248-7,Hawker Colours,Singapore,,0,1,N/A,N/A,N/A,N/A,N/A
 978-4-8053-1670-2,A History of Japan in Manga,History,,0,1,Illustrated History of Japan : the Manga Version,"Shunichiro Kanaya, Zack Davisson",,2023.0,
 978-1-5266-0006-6,The World in 2050,Strategy,,0,1,World In 2050,Hamish McRae,,2023.0,
